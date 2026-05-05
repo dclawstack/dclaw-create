@@ -1,6 +1,8 @@
 {
   "app_id": "create",
   "name": "DClaw Create",
+  "description": "AI content creation studio for text, images, audio, and video generation.",
+  "tagline": "Generate anything",
   "version": "0.1.0",
   "category": "media",
   "icon": "/icons/create.svg",
