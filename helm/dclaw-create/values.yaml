@@ -1,0 +1,43 @@
+# Default values for dclaw-create
+replicaCount: 2
+
+frontend:
+  image:
+    repository: ghcr.io/dclawstack/dclaw-create
+    tag: latest
+    pullPolicy: IfNotPresent
+  port: 3007
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+ingress:
+  enabled: true
+  className: nginx
+  host: create.dclawstack.io
+  tls:
+    enabled: true
+    secretName: dclaw-create-tls
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
+service:
+  type: ClusterIP
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}

@@ -1,0 +1,13 @@
+{
+  "app_id": "create",
+  "name": "DClaw Create",
+  "version": "0.1.0",
+  "category": "media",
+  "icon": "/icons/create.svg",
+  "color": "#EC4899",
+  "entrypoint": "/",
+  "api_base": "https://create.dclawstack.io",
+  "permissions": ["read:creations", "write:creations"],
+  "requires_auth": true,
+  "billing_plan": "free"
+}
