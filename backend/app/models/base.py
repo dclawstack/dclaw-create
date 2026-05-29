@@ -1,4 +1,10 @@
-from sqlalchemy.orm import DeclarativeBase
+import uuid
+from datetime import datetime
+
+from sqlalchemy import DateTime
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+from app.core.utils import utc_now
 
 
 class Base(DeclarativeBase):
@@ -8,3 +14,22 @@ class Base(DeclarativeBase):
     NEVER use sqlalchemy.orm.declarative_base() separately.
     """
     pass
+
+
+class TimestampMixin:
+    """Mixin that adds created_at and updated_at columns."""
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utc_now, nullable=False,
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime, default=utc_now, onupdate=utc_now, nullable=False,
+    )
+
+
+class UUIDPrimaryKeyMixin:
+    """Mixin that adds a UUID primary key."""
+
+    id: Mapped[uuid.UUID] = mapped_column(
+        primary_key=True, default=uuid.uuid4,
+    )
