@@ -25,8 +25,8 @@ status: P3
 | **Tagline** | Generate anything |
 | **Color** | #EC4899 |
 | **Phase** | P3 |
-| **Port (Frontend Dev)** | 3079 (TBD — assign before build) |
-| **Port (Backend Dev)** | 18149 (TBD — assign before build) |
+| **Port (Frontend Dev)** | 3007 |
+| **Port (Backend Dev)** | 8154 |
 | **Maturity Tier** | 🟡 Tier 2 — Partial |
 
 ---
